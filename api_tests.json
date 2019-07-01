@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "dbea5e20-0a5d-4f27-a427-d48a7f0e3f1b",
+		"name": "Humanitec_qa_interview_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://jsonplaceholder.typicode.com/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f91ad5c8-2891-44f4-bcae-99044358724c",
+						"exec": [
+							"//test verify  status code",
+							"pm.test(\"API test to ascertain that response code is 200\", ()=> {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"//test to verify response time ",
+							"pm.test(\"API test to ascertain that response time is below 200 milliseconds\",  ()=> {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"",
+							"/*Test to print company names ending with Group key word*/",
+							"pm.test(\"API test to iterate over all elements and log out all company names ending in “ Group\",()=>{",
+							"    ",
+							"    let jsonData = pm.response.json();",
+							"    ",
+							"    jsonData.forEach((jsonObject)=>{",
+							"        ",
+							"        //use a regular expression to test a potential match for group keyword",
+							"        let reg_expr= new RegExp(\".*Group*\");",
+							"        ",
+							"        //test company name against the created regex",
+							"        let regex_test=reg_expr.test(jsonObject.company.name);",
+							"        ",
+							"        if(regex_test){",
+							"            ",
+							"            //log names with Group keyword",
+							"            console.log(jsonObject.company.name);",
+							"            ",
+							"        }",
+							"        ",
+							"    })",
+							"    ",
+							"    ",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
