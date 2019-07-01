@@ -10,8 +10,10 @@ Installation Instructions
 
 4.You’ll need to install the Visual Studio runtime for some Newman dependencies to be installed. The quickest way to do this is to install Visual Studio Express – http://go.microsoft.com/?linkid=9816758. To check for any additional requirements for your system, check https://github.com/TooTallNate/node-gyp (Windows).
 
-5.Install newman globally issuing the command  “npm install -g newman” on terminal/command prompt
+5.Install newman globally by issuing the command  “npm install -g newman” on a terminal/command prompt
 
-6.Clone the repository and navigate to it by either a terminal in mac or command prompt in windows
+6.Check that newman has been installed correctly by typing "newman --version" on a terminal/command prompt.You should get a version number
 
-7.Issue the command "newman run api_tests.json" to execute the automated tests.
+7.Clone the repository and navigate to its root directory.You will find a .json file
+
+8.Issue the command "newman run api_tests.json" to execute the automated tests.
